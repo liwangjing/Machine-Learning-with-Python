@@ -1,0 +1,25 @@
+1. how to config backend for keras:
+  1). find keras.json
+  	import os
+	print(os.path.expanduser('~'))
+	under the directory, find ".keras", in this directory, there is the 'keras.json' file
+  2). modify
+  	it looks like this:
+  	{
+    "image_dim_ordering": "tf", 
+    "epsilon": 1e-07, 
+    "floatx": "float32", 
+    "backend": "theano"
+	}
+	change the "backend" to what you are working with, "theano"/"tensorflow"
+
+
+
+2. download and install MinGW:
+	refer to : https://www.ics.uci.edu/~pattis/common/handouts/mingweclipse/mingw.html
+
+
+3. new 64bit python 2.7 installation libpython27.a is broken, it might not work well with gcc
+	run these 2 commands in terminal
+		pexports "C:\Windows\SysWOW64\python27.dll" > "C:\Python27\libs\python27.def"
+		dlltool --dllname "C:\Windows\SysWOW64\python27.dll" --def "C:\Python27\libs\python27.def" --output-lib "C:\Python27\libs\libpython27.a"
